@@ -21,3 +21,4 @@ int32_t heap_extract_max(Heap *heap);
 uint32_t heap_size(Heap *heap);
 
 #endif // HEAP_H_INCLUDED
+
