@@ -74,12 +74,12 @@ void test_heap_extract_max(){
 }
 
 int main(){
-   //test_newheap();
-   //test_sort();
+   test_newheap();
+   test_sort();
    test_insert();
-   //test_heap_test();
-   //test_get_max();
-   //test_heap_extract_max();
+   test_heap_test();
+   test_get_max();
+   test_heap_extract_max();
    
    return 0;
 }
