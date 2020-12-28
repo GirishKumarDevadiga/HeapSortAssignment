@@ -37,7 +37,6 @@ static void _heapify_(int32_t data[], uint32_t len, uint32_t parent) {
 static void _test_heap_(int32_t data[], uint32_t len){
        for(uint32_t child = len; child > 1; --child){
          assert(data[child] <= data[child/2]);
-         printf("%d:%d\n", data[child/2], data[child]);
    }
 }
 
