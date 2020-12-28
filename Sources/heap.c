@@ -37,6 +37,7 @@ static void _heapify_(int32_t data[], uint32_t len, uint32_t parent) {
 static void _test_heap_(int32_t data[], uint32_t len){
        for(uint32_t child = len; child > 1; --child){
          assert(data[child] <= data[child/2]);
+         printf("%d:%d\n", data[child/2], data[child]);
    }
 }
 
@@ -82,9 +83,19 @@ uint32_t heap_size(Heap *heap){
 Heap* heap_insert(Heap *heap, int32_t key){
    assert(heap != NULL && heap->size > 0);
    heap->data[++heap->size] = key;
+   
+   // O(nlogn)
+   //for (uint32_t idx = heap->size / 2; idx > 0; --idx){
+   //   _heapify_(heap->data, heap->size, idx);
+   //}
 
-   for (uint32_t idx = heap->size / 2; idx > 0; --idx){
-      _heapify_(heap->data, heap->size, idx);
+   // O(logn)
+   for(int32_t idx = heap->size; idx > 1; idx = idx / 2){
+       if(heap->data[idx] < heap->data[idx / 2]){
+          break;
+       } else {
+          _swap_(&heap->data[idx], &heap->data[idx / 2]);
+       }
    }
 
    return heap;

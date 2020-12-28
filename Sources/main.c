@@ -32,21 +32,13 @@ void test_insert(){
     
    assert(heap_size(heap) == 10);
 
-   heap = heap_sort(heap);
-   assert(heap->data[1] == 5);
-   assert(heap->data[10] == 90);
-   assert(heap_size(heap) == 10);
+
+   heap = heap_insert(heap, 50);
+   assert(heap_test(heap) == 1);
+
 
    heap = heap_insert(heap, 100);
-   heap = heap_sort(heap);
-   assert(heap_size(heap) == 11);
-   assert(heap->data[11] == 100);
-
-   heap = heap_insert(heap, 2);
-   heap = heap_sort(heap);
-   assert(heap_size(heap) == 12);
-   assert(heap->data[1] == 2);
-   assert(heap->data[12] == 100);
+   assert(heap_test(heap) == 1);
 
 }
 
@@ -82,12 +74,12 @@ void test_heap_extract_max(){
 }
 
 int main(){
-   test_newheap();
-   test_sort();
+   //test_newheap();
+   //test_sort();
    test_insert();
-   test_heap_test();
-   test_get_max();
-   test_heap_extract_max();
+   //test_heap_test();
+   //test_get_max();
+   //test_heap_extract_max();
    
    return 0;
 }
